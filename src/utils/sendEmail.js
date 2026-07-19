@@ -14,7 +14,7 @@ export async function sendInquiryEmail({ fullName, email, phone = '', company = 
     `Message:\n${message}\n`
   );
 
-  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '8ca57470-494f-4d62-be2a-4d867a073c9d';
 
   if (accessKey) {
     try {

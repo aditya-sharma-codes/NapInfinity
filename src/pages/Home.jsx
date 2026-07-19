@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const heroImg = "/hero_engineering_facility.png";
-const acousticImg = "/acoustic_engineering_office.png";
+const acousticImg = "/sound_masking_office_interior.png";
 
 export default function Home() {
   const navigate = useNavigate();
