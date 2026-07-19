@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center gap-2 mb-6">
             <span className="font-headline-sm text-headline-sm font-black text-on-surface dark:text-inverse-on-surface">
-              NAP Infinity LLP
+              NAP Infinity
             </span>
           </div>
           <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim mb-6">
@@ -74,7 +74,7 @@ export default function Footer() {
 
       <div className="mt-16 pt-8 border-t border-surface-variant dark:border-on-secondary-fixed-variant px-4 md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim">
-          © 2024 NAP Infinity LLP. Engineering Precision. Global Excellence.
+          © 2024 NAP Infinity. Engineering Precision. Global Excellence.
         </p>
         <div className="flex gap-8">
           <a className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim hover:text-primary" href="#">Privacy Policy</a>

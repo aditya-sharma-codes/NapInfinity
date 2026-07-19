@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { sendInquiryEmail } from '../utils/sendEmail';
 
 export default function RequestQuote() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -10,13 +12,22 @@ export default function RequestQuote() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ fullName: '', email: '', phone: '', inquiryType: 'Structural Engineering', message: '' });
-    }, 4000);
+    setIsSubmitting(true);
+
+    try {
+      await sendInquiryEmail(formData);
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ fullName: '', email: '', phone: '', inquiryType: 'Structural Engineering', message: '' });
+      }, 5000);
+    } catch (err) {
+      console.error(err);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -50,7 +61,9 @@ export default function RequestQuote() {
                   </div>
                   <h3 className="font-headline-sm text-headline-sm">Headquarters</h3>
                 </div>
-                <p className="font-body-md text-secondary">1200 Innovation Way, Suite 400, Zurich, Switzerland</p>
+                <p className="font-body-md text-secondary">
+                  Office No- 702, Building No-9, M-Avenue, Rustomjee Evershine Global City, Near Yazoo Park, Virar(West), Mumbai, Maharashtra-401303
+                </p>
               </div>
 
               <div className="bg-surface-container-lowest p-8 rounded-xl border border-surface-variant shadow-sm">
@@ -60,7 +73,7 @@ export default function RequestQuote() {
                   </div>
                   <h3 className="font-headline-sm text-headline-sm">Global Support</h3>
                 </div>
-                <p className="font-body-md text-secondary">connect@infinity-eng.com</p>
+                <p className="font-body-md text-secondary font-semibold">info@napinfinity.com</p>
               </div>
 
               <div className="bg-surface-container-lowest p-8 rounded-xl border border-surface-variant shadow-sm hover:shadow-lg transition-shadow">
@@ -173,10 +186,19 @@ export default function RequestQuote() {
 
                 <button 
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full bg-primary text-on-primary py-4 rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-all shadow-md hover:shadow-lg active:scale-[0.98] flex items-center justify-center gap-2 group text-white"
                 >
-                  Send Message
-                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+                  {isSubmitting ? (
+                    <>
+                      <span className="material-symbols-outlined animate-spin">refresh</span> Processing...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+                    </>
+                  )}
                 </button>
               </form>
 

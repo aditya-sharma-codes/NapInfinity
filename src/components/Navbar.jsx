@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Menu, X, ArrowRight, ChevronRight } from 'lucide-react';
 import { useTheme } from './ThemeContext';
-import { Sun, Moon, Menu, X, ArrowRight } from 'lucide-react';
 
 const logoUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuDwDQlIdlF2_gjtyKrXH6U3M0j7PCp6lGCeOHUKKSQ7cxIeY2PupBzHHqRWChPEOLkj18UXU7nJc8AljQXqcc3H0kwY9dRjdsOg-mf89ej1gduMNeMrFym9ZBCV040_UvMdv4eFyuMGShQs-vko5bEzdUS7b5FW5SA4dAWEp-CMmjt13J2iAAqu2TQ0c6ULw_3DJcgJtaw0C8hyuO0gz8qy-CCdIk9tH1W_7bFDdAlUvkUVICZDXviVlbHWlkUBd8e6pA";
 
 export default function Navbar() {
-  const { darkMode, toggleTheme } = useTheme();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -19,24 +18,28 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 w-full z-50 glass-nav border-b border-slate-200/60 dark:border-slate-800/80 shadow-sm transition-colors duration-300">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-        {/* Brand Logo & Title */}
-        <Link to="/" className="flex items-center gap-3 group">
+    <header className="bg-surface-container-lowest/95 backdrop-blur-md sticky top-0 w-full z-50 border-b border-surface-variant shadow-sm transition-all">
+      <nav className="flex justify-between items-center h-20 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+        {/* Brand Logo & Name */}
+        <NavLink 
+          to="/" 
+          className="flex items-center gap-3 md:gap-4 group"
+          onClick={() => setMobileMenuOpen(false)}
+        >
           <img 
-            src={logoUrl} 
             alt="NAP Infinity Logo" 
-            className="h-10 w-auto object-contain transition-transform group-hover:scale-105 duration-200" 
+            className="h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-105 duration-200" 
+            src={logoUrl} 
           />
           <div className="flex flex-col">
-            <span className="font-headline text-xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-none">
+            <span className="font-headline text-lg md:text-xl font-extrabold tracking-tight text-on-surface leading-none">
               NAP <span className="text-primary">INFINITY</span>
             </span>
-            <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500 dark:text-slate-400 mt-0.5">
-              LLP • Precision Engineering
+            <span className="text-[10px] uppercase font-bold tracking-widest text-secondary mt-0.5 hidden sm:inline-block">
+              Precision Engineering
             </span>
           </div>
-        </Link>
+        </NavLink>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
@@ -45,10 +48,10 @@ export default function Navbar() {
               key={link.name}
               to={link.path}
               className={({ isActive }) =>
-                `text-sm font-semibold tracking-wide transition-all duration-200 relative py-1 ${
+                `font-label-caps text-label-caps py-1 transition-colors relative ${
                   isActive
                     ? 'text-primary font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary'
+                    : 'text-secondary hover:text-primary'
                 }`
               }
             >
@@ -57,71 +60,67 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Actions & Theme Toggler */}
+        {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
           <button
-            onClick={toggleTheme}
-            className="p-2.5 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            aria-label="Toggle Theme"
-          >
-            {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" />}
-          </button>
-
-          <button
             onClick={() => navigate('/request-quote')}
-            className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 active:scale-95 transition-all duration-150 flex items-center gap-2"
+            className="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 active:scale-95 transition-all duration-150 flex items-center gap-2 shadow-md shadow-primary/20"
           >
             <span>Request Quote</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Mobile menu trigger */}
-        <div className="flex md:hidden items-center gap-3">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full text-slate-600 dark:text-slate-300"
-          >
-            {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5" />}
-          </button>
+        {/* Mobile Sandwich Menu Toggle */}
+        <div className="flex md:hidden items-center gap-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-700 dark:text-slate-200 focus:outline-none"
+            className="p-2.5 rounded-xl text-on-surface hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20"
+            aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6 text-primary" />
+            ) : (
+              <Menu className="w-6 h-6 text-on-surface" />
+            )}
           </button>
         </div>
       </nav>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-nav border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3 animate-fade-in-up">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-4 py-2.5 rounded-lg text-base font-semibold transition-colors ${
-                  isActive
-                    ? 'bg-primary/10 text-primary font-bold'
-                    : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-          <div className="pt-2">
+        <div className="md:hidden border-t border-surface-variant bg-surface-container-lowest/98 backdrop-blur-xl px-4 pt-3 pb-6 shadow-xl space-y-3">
+          <div className="flex flex-col space-y-1">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all ${
+                    isActive
+                      ? 'bg-primary/10 text-primary font-bold'
+                      : 'text-on-surface hover:bg-surface-container-low'
+                  }`
+                }
+              >
+                <span>{link.name}</span>
+                <ChevronRight className="w-4 h-4 opacity-50 text-secondary" />
+              </NavLink>
+            ))}
+          </div>
+
+          <div className="pt-3 border-t border-surface-variant/60">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 navigate('/request-quote');
               }}
-              className="w-full bg-primary text-white py-3 rounded-xl font-bold text-center flex items-center justify-center gap-2 shadow-lg shadow-primary/30"
+              className="w-full bg-primary text-on-primary py-3 px-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 shadow-lg shadow-primary/25 active:scale-98 transition-all"
             >
-              Request Quote <ArrowRight className="w-4 h-4" />
+              <span>Request Quote</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

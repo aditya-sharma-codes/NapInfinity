@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendInquiryEmail } from '../utils/sendEmail';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,11 +14,12 @@ export default function Contact() {
     privacy: false
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      await sendInquiryEmail(formData);
       setIsSubmitting(false);
       setSubmitted(true);
       setTimeout(() => {
@@ -30,8 +32,11 @@ export default function Contact() {
           message: '',
           privacy: false
         });
-      }, 4000);
-    }, 1500);
+      }, 5000);
+    } catch (err) {
+      console.error(err);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,7 +48,7 @@ export default function Contact() {
           <span className="font-label-caps text-label-caps text-primary mb-4 block tracking-widest uppercase">Global Excellence</span>
           <h1 className="font-display-lg text-display-lg md:text-[64px] text-on-surface mb-6 leading-tight">Get in Touch</h1>
           <p className="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">
-            Partner with NAP Infinity LLP for world-class industrial exports, precision sound masking, and acoustic engineering solutions.
+            Partner with NAP Infinity for world-class industrial exports, precision sound masking, and acoustic engineering solutions.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-[4px] bg-primary opacity-20"></div>

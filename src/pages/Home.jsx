@@ -93,7 +93,7 @@ export default function Home() {
               <h2 className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-4">Precision &amp; Partnership</h2>
               <h3 className="text-3xl md:text-5xl font-display font-bold mb-8 dark:text-white leading-tight">Driving Industrial Innovation with Legacy &amp; Vision</h3>
               <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed">
-                At NAP Infinity LLP, we specialize in delivering world-class engineering solutions. Our legacy is built on nearly two decades of precision manufacturing and strategic global partnerships.
+                At NAP Infinity, we specialize in delivering world-class engineering solutions. Our legacy is built on nearly two decades of precision manufacturing and strategic global partnerships.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-10">
                 <li className="flex items-center gap-3">
@@ -274,7 +274,7 @@ export default function Home() {
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-8">Ready to Elevate Your Engineering Standards?</h2>
             <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Consult with our expert engineers today and discover how NAP Infinity LLP can optimize your industrial performance.
+              Consult with our expert engineers today and discover how NAP Infinity can optimize your industrial performance.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button 
