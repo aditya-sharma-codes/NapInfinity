@@ -12,7 +12,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim mb-6">
-            Engineering precision, industrial exports, and advanced acoustic solutions for a global market.
+            Engineering precision, industrial exports, and interior consultation & project execution for a global market.
           </p>
           <div className="flex gap-4">
             <a className="w-10 h-10 rounded-full border border-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="#">
@@ -47,7 +47,7 @@ export default function Footer() {
           <ul className="space-y-4">
             <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Industrial Exports</Link></li>
             <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Sound Masking</Link></li>
-            <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Acoustic Solutions</Link></li>
+            <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Interior Consultation & Project Execution</Link></li>
           </ul>
         </div>
 

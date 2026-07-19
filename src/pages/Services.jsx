@@ -19,7 +19,7 @@ export default function Services() {
               Precision Engineering for a <span className="text-primary">Global Frontier.</span>
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Leveraging decades of technical expertise to deliver high-performance industrial components, acoustic systems, and engineering consultations worldwide.
+              Leveraging decades of technical expertise to deliver high-performance industrial components, sound masking systems, and interior consultation & project execution worldwide.
             </p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Services() {
       <section className="py-24 px-4 md:px-margin-desktop bg-surface-container-low">
         <div className="max-w-container-max mx-auto flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <span className="font-label-caps text-label-caps text-primary mb-4 block">ACOUSTIC COMFORT</span>
+            <span className="font-label-caps text-label-caps text-primary mb-4 block">SOUND MASKING & PRIVACY</span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">Advanced Sound Masking Systems</h2>
             <p className="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
               Our Sound Masking systems introduce a sophisticated, unobtrusive background sound designed to match the frequency of human speech, improving privacy and focus.
@@ -159,7 +159,7 @@ export default function Services() {
       {/* Mission / Consultation Section: Bold Red style */}
       <section className="bg-primary text-on-primary py-24 px-4 md:px-margin-desktop relative overflow-hidden text-white">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="font-headline-lg text-headline-lg mb-8 leading-tight">Engineering Consultation</h2>
+          <h2 className="font-headline-lg text-headline-lg mb-8 leading-tight">Interior Consultation & Project Execution</h2>
           <p className="text-2xl md:text-3xl font-bold mb-12 italic opacity-95 text-white">
             "We create engineering solutions that inspire confidence, improve performance, and contribute to sustainable business success across industries."
           </p>

@@ -48,7 +48,7 @@ export default function Contact() {
           <span className="font-label-caps text-label-caps text-primary mb-4 block tracking-widest uppercase">Global Excellence</span>
           <h1 className="font-display-lg text-display-lg md:text-[64px] text-on-surface mb-6 leading-tight">Get in Touch</h1>
           <p className="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">
-            Partner with NAP Infinity for world-class industrial exports, precision sound masking, and acoustic engineering solutions.
+            Partner with NAP Infinity for world-class industrial exports, precision sound masking, and interior consultation & project execution.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-[4px] bg-primary opacity-20"></div>
@@ -177,7 +177,7 @@ export default function Contact() {
                     >
                       <option>Industrial Exports</option>
                       <option>Sound Masking Solutions</option>
-                      <option>Acoustic Consulting</option>
+                      <option>Interior Consultation & Project Execution</option>
                       <option>General Inquiry</option>
                     </select>
                   </div>

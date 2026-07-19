@@ -31,7 +31,7 @@ export default function Home() {
               Engineering Solutions That <span className="text-primary underline decoration-primary/40 underline-offset-8">Drive Performance</span> &amp; Build Trust
             </h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl font-body-lg">
-              Introducing NAP Infinity's excellence in high-precision engineering, industrial exports, and acoustic innovation. We bridge the gap between complex challenges and sustainable solutions.
+              Introducing NAP Infinity's excellence in high-precision engineering, industrial exports, and interior consultation & project execution. We bridge the gap between complex challenges and sustainable solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button 
@@ -151,7 +151,7 @@ export default function Home() {
                 <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">graphic_eq</span>
               </div>
               <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Sound Masking</h4>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Innovative systems designed to enhance workplace privacy and focus through acoustic technology.</p>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Innovative systems designed to enhance workplace privacy and focus through sound masking technology.</p>
               <ul className="space-y-3 mb-8 text-sm font-medium text-slate-500">
                 <li className="flex items-center gap-2">∙ Office Privacy</li>
                 <li className="flex items-center gap-2">∙ Healthcare Silence</li>
@@ -162,12 +162,12 @@ export default function Home() {
               <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
                 <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">architecture</span>
               </div>
-              <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Acoustic Engineering</h4>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Comprehensive vibration and noise control solutions for high-performance industrial environments.</p>
+              <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Interior Consultation & Project Execution</h4>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Comprehensive design consultation, workspace planning, and seamless project execution for modern commercial spaces.</p>
               <ul className="space-y-3 mb-8 text-sm font-medium text-slate-500">
-                <li className="flex items-center gap-2">∙ Noise Mapping</li>
-                <li className="flex items-center gap-2">∙ Structural Analysis</li>
-                <li className="flex items-center gap-2">∙ Material Consultation</li>
+                <li className="flex items-center gap-2">∙ Workspace Planning</li>
+                <li className="flex items-center gap-2">∙ Design Consultation</li>
+                <li className="flex items-center gap-2">∙ End-to-End Execution</li>
               </ul>
             </div>
           </div>
