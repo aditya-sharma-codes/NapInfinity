@@ -1,12 +1,157 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import acousticHeroImg from '../assets/acoustic_hero.png';
 import interiorServiceImg from '../assets/interior_service.png';
 import soundMaskingDiagramImg from '../assets/sound_masking_diagram.jpg';
 import IndiaFlag from '../components/IndiaFlag';
+import { sendInquiryEmail } from '../utils/sendEmail';
 
 export default function Services() {
   const navigate = useNavigate();
+
+  const [catalogModalOpen, setCatalogModalOpen] = useState(false);
+  const [modalTab, setModalTab] = useState('view'); // 'view' or 'download'
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [modalSubmitted, setModalSubmitted] = useState(false);
+  const [isModalSubmitting, setIsModalSubmitting] = useState(false);
+  const [modalFormData, setModalFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    inquiryType: 'Sound Masking Systems',
+    message: 'Request for Sound Masking Catalog PDF.'
+  });
+
+  const catalogSlides = [
+    {
+      title: "SOUND MASKING SYSTEM",
+      subtitle: "Enhancing Privacy. Improving Productivity.",
+      badge: "🇮🇳 MADE IN INDIA",
+      bullets: [
+        "Smart Acoustic Privacy Solutions: Reduces speech intelligibility and creates a comfortable acoustic environment",
+        "Power Amplifier / Controller: Single channel controller, single sensor input, built-in 2 channel power amplifier, DSP based sound masking",
+        "Ceiling Loudspeaker: 6W rated power @ 100V, wide dispersion, flush mount ceiling clarity",
+        "Ambient Noise Sensor: Self-developed sensor installed inside smoke detector style case"
+      ]
+    },
+    {
+      title: "CONTROLLER SPECIFICATIONS",
+      subtitle: "NAP Infinity Sound Masking Controller with Integrated Amplifier",
+      badge: "DIGITAL CONTROLLER",
+      bullets: [
+        "Product Type & Audio Processing: Digital Sound Masking Controller with 32-bit DSP",
+        "Output Power & Speaker Load: 2 × 100 W RMS @ 100V Line, supporting up to 15 × 6W ceiling speakers (90W load)",
+        "Masking Optimization: 100 Hz – 10 kHz optimized frequency response with digital multi-band EQ",
+        "Controls: PC/Web-based configuration, Ethernet RJ45 network interface, and RS-485 communication link"
+      ]
+    },
+    {
+      title: "CEILING SPEAKER SPECIFICATIONS",
+      subtitle: "NAP Infinity Ceiling Sound Masking Speaker",
+      badge: "LOUDSPEAKER",
+      bullets: [
+        "Driver & Speaker Type: 6-inch Dual Cone Full-Range 100 V line ceiling loudspeaker",
+        "Transformer Taps: Adjustable power settings (6W / 3W / 1.5W)",
+        "Acoustic Metrics: Frequency response 80 Hz – 18 kHz, sensitivity 86 dB (1W / 1m), maximum SPL 94 dB",
+        "Physical Design: Steel grille with ABS frame, white (RAL 9010) colour, spring clamp flush ceiling mount"
+      ]
+    },
+    {
+      title: "AMBIENT NOISE SENSOR SPECIFICATIONS",
+      subtitle: "Intelligent microphone-based sensor",
+      badge: "INTELLIGENT SENSOR",
+      bullets: [
+        "Measurement Range: 35–90 dBA with ±1 dB accuracy, A-weighted frequency weighting",
+        "Automatic Level Control (ALC): Supported directly with the controller to dynamically increase/decrease masking levels",
+        "System Capacity: 1 Zone, 1 Sensor, 1 Speaker Line, maximum speaker load 15 × Bosch LHM 0606/10 (6W)",
+        "Operating Specifications: Power supply 24 VDC, current consumption <50 mA, operating temperature 0°C to +45°C"
+      ]
+    },
+    {
+      title: "CONTACT & SUPPORT",
+      subtitle: "Sound of Silence Acoustic Solutions LLP",
+      badge: "Acoustic Consulting | Noise Control",
+      bullets: [
+        "Services Provided: Sound masking system design & deployment, acoustic testing & measurements, and speech privacy assessment",
+        "Acoustic Engineering: Noise control solutions, reverberation time analysis, corporate & commercial acoustic consulting",
+        "Service Coverage: PAN India supply, installation, commissioning, and post-installation support",
+        "Get in Touch: Mobile: +91 89288 68742 | Email: info@soundofsilence.in | Web: www.soundofsilence.in"
+      ]
+    }
+  ];
+
+  const handleOpenCatalogModal = (tab) => {
+    setModalTab(tab);
+    setCatalogModalOpen(true);
+  };
+
+  const handleModalSubmit = async (e) => {
+    e.preventDefault();
+    setIsModalSubmitting(true);
+    try {
+      await sendInquiryEmail(modalFormData);
+      setIsModalSubmitting(false);
+      setModalSubmitted(true);
+      localStorage.setItem('nap_inquiry_submitted', 'true');
+      
+      // Auto trigger the PDF download
+      const link = document.createElement('a');
+      link.href = '/sound_masking_catalog.pdf';
+      link.download = 'sound_masking_catalog.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error(err);
+      setIsModalSubmitting(false);
+    }
+  };
+
+  const handleDirectDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/sound_masking_catalog.pdf';
+    link.download = 'sound_masking_catalog.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  React.useEffect(() => {
+    if (catalogModalOpen) {
+      const preventDefault = (e) => e.preventDefault();
+      
+      // Disable right click context menu
+      document.addEventListener('contextmenu', preventDefault);
+      
+      // Disable print screen, copy, developer tools key combinations
+      const handleKeyDown = (e) => {
+        if (
+          e.key === 'PrintScreen' || 
+          (e.ctrlKey && (e.key === 'p' || e.key === 's' || e.key === 'c' || e.key === 'u')) || 
+          e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))
+        ) {
+          e.preventDefault();
+          alert("Screenshots, printing, and saving are disabled in catalog preview mode. Submit a quick inquiry to download the high-resolution PDF.");
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+
+      // Listen for print screen keyup to clear clipboard
+      const handleKeyUp = (e) => {
+        if (e.key === 'PrintScreen') {
+          navigator.clipboard.writeText('Screenshot disabled.');
+        }
+      };
+      window.addEventListener('keyup', handleKeyUp);
+
+      return () => {
+        document.removeEventListener('contextmenu', preventDefault);
+        window.removeEventListener('keydown', handleKeyDown);
+        window.removeEventListener('keyup', handleKeyUp);
+      };
+    }
+  }, [catalogModalOpen]);
 
   return (
     <main className="bg-background text-on-surface">
@@ -79,6 +224,23 @@ export default function Services() {
                 <span><IndiaFlag className="w-3.5 h-2 inline align-middle mr-1" /> Proudly designed and manufactured in India</span>
               </li>
             </ul>
+
+            <div className="flex flex-wrap gap-4 mt-8">
+              <button 
+                onClick={() => handleOpenCatalogModal('view')}
+                className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-bold rounded-xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20 gap-2 text-sm"
+              >
+                <span className="material-symbols-outlined text-[20px]">menu_book</span>
+                <span>View Catalog</span>
+              </button>
+              <button 
+                onClick={() => handleOpenCatalogModal('download')}
+                className="inline-flex items-center justify-center px-6 py-3 bg-surface-container-highest/80 hover:bg-surface-container-highest border border-outline-variant text-on-surface font-bold rounded-xl hover:scale-105 active:scale-95 transition-all gap-2 text-sm"
+              >
+                <span className="material-symbols-outlined text-[20px]">download</span>
+                <span>Download PDF Catalog</span>
+              </button>
+            </div>
           </div>
 
           <div className="lg:w-1/2 relative">
@@ -234,6 +396,204 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* Sound Masking Catalog Modal */}
+      {catalogModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-slate-950/80 backdrop-blur-md transition-all duration-300 text-slate-800 dark:text-slate-200">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]">
+            
+            {/* Modal Header */}
+            <div className="flex justify-between items-center p-6 border-b border-slate-200 dark:border-slate-800">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <span className="material-symbols-outlined">menu_book</span>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-headline-sm text-headline-sm dark:text-white">Sound Masking Catalog</h3>
+                  <p className="text-xs text-slate-500 font-medium tracking-wide uppercase">NAP INFINITY EXCELLENCE</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setCatalogModalOpen(false)}
+                className="w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 transition-colors"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+
+            {/* Modal Navigation Tabs */}
+            <div className="flex border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60">
+              <button 
+                onClick={() => setModalTab('view')}
+                className={`flex-1 py-4 text-center font-label-caps text-label-caps font-bold transition-all relative ${modalTab === 'view' ? 'text-primary' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+              >
+                View Catalog
+                {modalTab === 'view' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full"></div>}
+              </button>
+              <button 
+                onClick={() => setModalTab('download')}
+                className={`flex-1 py-4 text-center font-label-caps text-label-caps font-bold transition-all relative ${modalTab === 'download' ? 'text-primary' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+              >
+                Download PDF
+                {modalTab === 'download' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full"></div>}
+              </button>
+            </div>
+
+            {/* Modal Content Area */}
+            <div className="flex-1 overflow-y-auto p-6 md:p-8">
+              
+              {/* Tab 1: View Catalog (Interactive Slider/Mockup Pages) */}
+              {modalTab === 'view' && (
+                <div className="space-y-6">
+                  {/* Real PDF Embed Container */}
+                  <div className="relative w-full h-[60vh] md:h-[70vh] border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-900 shadow-inner">
+                    
+                    {/* Security Watermark Overlay */}
+                    <div className="absolute inset-0 z-20 pointer-events-none select-none overflow-hidden flex flex-col justify-around rotate-[-12deg] scale-110 opacity-[0.04]">
+                      {[...Array(8)].map((_, i) => (
+                        <div key={i} className="flex justify-around text-xs md:text-sm font-black tracking-widest text-white whitespace-nowrap">
+                          <span>NAP INFINITY PREVIEW</span>
+                          <span>NAP INFINITY PREVIEW</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* PDF iframe - Disable toolbar to hide Chrome's download/print options */}
+                    <iframe 
+                      src="/sound_masking_catalog.pdf#toolbar=0&navpanes=0" 
+                      title="Sound Masking Catalog Preview"
+                      className="w-full h-full border-none select-none"
+                    />
+                  </div>
+
+                  {/* bottom note prompting download */}
+                  <div className="bg-slate-50 dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 text-center">
+                    <p className="text-body-md text-slate-600 dark:text-slate-350 mb-4">
+                      This is a non-downloadable preview of our catalog. Submit a quick inquiry to download the high-resolution PDF catalog.
+                    </p>
+                    <button 
+                      onClick={() => setModalTab('download')}
+                      className="px-6 py-2.5 bg-primary text-white font-bold rounded-xl hover:scale-105 active:scale-95 transition-all text-sm shadow-md"
+                    >
+                      Unlock PDF Download
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab 2: Download PDF (Inquiry Required) */}
+              {modalTab === 'download' && (
+                <div className="space-y-6">
+                  {/* Checked if user already submitted an inquiry */}
+                  {(localStorage.getItem('nap_inquiry_submitted') === 'true' || modalSubmitted) ? (
+                    <div className="text-center py-8 space-y-6 max-w-md mx-auto">
+                      <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-950/30 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="material-symbols-outlined text-4xl font-bold">verified_user</span>
+                      </div>
+                      <h4 className="font-headline-sm text-headline-sm dark:text-white">Download Authorized</h4>
+                      <p className="font-body-md text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Thank you! Your active inquiry enables instant document access. You can now download the Sound Masking System Catalog PDF.
+                      </p>
+                      <button 
+                        onClick={handleDirectDownload}
+                        className="w-full py-3.5 bg-primary text-white font-bold rounded-xl hover:scale-105 active:scale-95 transition-transform shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+                      >
+                        <span className="material-symbols-outlined">download</span>
+                        <span>Download Catalog PDF</span>
+                      </button>
+                      <button 
+                        onClick={() => setModalTab('view')}
+                        className="text-xs font-bold text-primary hover:underline block mx-auto mt-4"
+                      >
+                        Back to Catalog Preview
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-6">
+                      <div className="bg-slate-50 dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 text-left">
+                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                          <span className="material-symbols-outlined font-bold">lock</span>
+                        </div>
+                        <p className="text-body-sm text-slate-650 dark:text-slate-350 leading-relaxed">
+                          To download the PDF, please submit a quick inquiry below. The download will start automatically once submitted.
+                        </p>
+                      </div>
+
+                      <form onSubmit={handleModalSubmit} className="space-y-4 text-left">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="font-label-caps text-label-caps block mb-1.5 text-xs text-slate-500 dark:text-slate-400">Full Name</label>
+                            <input 
+                              required
+                              className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-850 bg-slate-50 dark:bg-slate-950 focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none" 
+                              placeholder="Full Name" 
+                              type="text"
+                              value={modalFormData.fullName}
+                              onChange={(e) => setModalFormData({ ...modalFormData, fullName: e.target.value })}
+                            />
+                          </div>
+                          <div>
+                            <label className="font-label-caps text-label-caps block mb-1.5 text-xs text-slate-500 dark:text-slate-400">Email Address</label>
+                            <input 
+                              required
+                              className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-850 bg-slate-50 dark:bg-slate-950 focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none" 
+                              placeholder="Email Address" 
+                              type="email"
+                              value={modalFormData.email}
+                              onChange={(e) => setModalFormData({ ...modalFormData, email: e.target.value })}
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="font-label-caps text-label-caps block mb-1.5 text-xs text-slate-500 dark:text-slate-400">Phone Number</label>
+                          <input 
+                            required
+                            className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-850 bg-slate-50 dark:bg-slate-950 focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none" 
+                            placeholder="Phone Number" 
+                            type="tel"
+                            value={modalFormData.phone}
+                            onChange={(e) => setModalFormData({ ...modalFormData, phone: e.target.value })}
+                          />
+                        </div>
+
+                        <div>
+                          <label className="font-label-caps text-label-caps block mb-1.5 text-xs text-slate-500 dark:text-slate-400">Message</label>
+                          <textarea 
+                            rows="2" 
+                            required
+                            className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-850 bg-slate-50 dark:bg-slate-950 focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none" 
+                            placeholder="Message" 
+                            value={modalFormData.message}
+                            onChange={(e) => setModalFormData({ ...modalFormData, message: e.target.value })}
+                          />
+                        </div>
+
+                        <button 
+                          type="submit"
+                          disabled={isModalSubmitting}
+                          className="w-full bg-primary text-white py-3 rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2 text-xs font-bold"
+                        >
+                          {isModalSubmitting ? (
+                            <>
+                              <span className="material-symbols-outlined animate-spin text-sm">refresh</span> Processing...
+                            </>
+                          ) : (
+                            <>
+                              <span className="material-symbols-outlined text-sm">mail</span> Submit &amp; Download PDF
+                            </>
+                          )}
+                        </button>
+                      </form>
+                    </div>
+                  )}
+                </div>
+              )}
+
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   );

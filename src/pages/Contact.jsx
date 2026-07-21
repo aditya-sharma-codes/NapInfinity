@@ -21,6 +21,7 @@ export default function Contact() {
       await sendInquiryEmail(formData);
       setIsSubmitting(false);
       setSubmitted(true);
+      localStorage.setItem('nap_inquiry_submitted', 'true');
       setTimeout(() => {
         setSubmitted(false);
         setFormData({
