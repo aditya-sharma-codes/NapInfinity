@@ -167,11 +167,10 @@ export default function Home() {
                 <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">public</span>
               </div>
               <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Industrial Exports</h4>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Global supply chain management and export of industrial machinery and electrical products.</p>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">From supplier evaluation and quality assurance to logistics and export documentation, we manage the complete procurement process, ensuring seamless delivery and complete customer satisfaction.</p>
               <ul className="space-y-3 mb-8 text-sm font-medium text-slate-500">
                 <li className="flex items-center gap-2">∙ Industrial Machinery</li>
                 <li className="flex items-center gap-2">∙ Electrical Products</li>
-                <li className="flex items-center gap-2">∙ Global Logistics &amp; Sourcing</li>
               </ul>
             </div>
 
