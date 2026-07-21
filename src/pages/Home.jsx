@@ -2,7 +2,8 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import IndiaFlag from '../components/IndiaFlag';
 
-const heroImg = "/hero_engineering_facility.png";
+import homeHeroBg from '../assets/home_hero_bg.jpg';
+
 const acousticImg = "/sound_masking_office_interior.png";
 
 export default function Home() {
@@ -15,12 +16,13 @@ export default function Home() {
       <section className="relative h-[90vh] min-h-[650px] flex items-center overflow-hidden pt-12 bg-slate-950">
         <div className="absolute inset-0 z-0">
           <img 
-            alt="Ultra-Sharp High-Tech Industrial Engineering Facility" 
+            alt="Abstract Purple Geometric Engineering Background" 
             className="w-full h-full object-cover opacity-85 scale-105 transition-transform duration-1000" 
-            src={heroImg} 
+            src={homeHeroBg} 
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/45 to-transparent lg:block hidden"></div>
+          <div className="absolute inset-0 bg-slate-950/60 lg:hidden block"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -142,11 +144,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* 1. Sound Masking */}
             <div className="group bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">graphic_eq</span>
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">graphic_eq</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-[10px] font-bold tracking-widest font-label-caps border border-primary/20">
+                  <IndiaFlag className="w-3.5 h-2" /> MAKE IN INDIA
+                </div>
               </div>
               <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Sound Masking</h4>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Innovative systems designed to enhance workplace privacy and focus through sound masking technology.</p>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Innovative systems with real time adaptability and designed to enhance workplace privacy and focus through sound masking technology.</p>
               <ul className="space-y-3 mb-8 text-sm font-medium text-slate-500">
                 <li className="flex items-center gap-2">∙ Office Privacy</li>
                 <li className="flex items-center gap-2">∙ Healthcare Silence</li>

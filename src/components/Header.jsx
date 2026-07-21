@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="bg-surface-container-lowest/95 backdrop-blur-md sticky top-0 w-full z-50 border-b border-surface-variant shadow-sm transition-all">
-      <nav className="flex justify-between items-center h-20 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+      <nav className="flex justify-between items-center py-2 md:py-3 min-h-20 px-4 md:px-margin-desktop max-w-container-max mx-auto">
         {/* Brand Logo & Name */}
         <NavLink 
           to="/" 
@@ -28,11 +28,11 @@ export default function Header() {
         >
           <img 
             alt="NAP Infinity Logo" 
-            className="h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-105 duration-200" 
+            className="h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105 duration-200" 
             src={logoUrl} 
           />
           <div className="flex flex-col">
-            <span className="font-headline text-lg md:text-xl font-extrabold tracking-tight text-on-surface leading-none">
+            <span className="font-headline text-xl md:text-2xl font-extrabold tracking-tight text-on-surface leading-none">
               <span className="text-primary">NAP</span> INFINITY
             </span>
           </div>

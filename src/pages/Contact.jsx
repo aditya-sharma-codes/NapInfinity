@@ -9,9 +9,8 @@ export default function Contact() {
     fullName: '',
     email: '',
     company: '',
-    inquiryType: 'Industrial Machinery',
-    message: '',
-    privacy: false
+    inquiryType: '',
+    message: ''
   });
 
   const handleSubmit = async (e) => {
@@ -28,9 +27,8 @@ export default function Contact() {
           fullName: '',
           email: '',
           company: '',
-          inquiryType: 'Industrial Machinery',
-          message: '',
-          privacy: false
+          inquiryType: '',
+          message: ''
         });
       }, 5000);
     } catch (err) {
@@ -138,7 +136,7 @@ export default function Contact() {
                     <input 
                       required
                       className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                      placeholder="John Doe" 
+                      placeholder="Full Name" 
                       type="text"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
@@ -149,7 +147,7 @@ export default function Contact() {
                     <input 
                       required
                       className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                      placeholder="john@company.com" 
+                      placeholder="Email Address" 
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -162,7 +160,7 @@ export default function Contact() {
                     <label className="font-label-caps text-label-caps block mb-2 text-on-surface-variant">Company</label>
                     <input 
                       className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                      placeholder="Industrial Corp" 
+                      placeholder="Company" 
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -171,10 +169,12 @@ export default function Contact() {
                   <div>
                     <label className="font-label-caps text-label-caps block mb-2 text-on-surface-variant">Inquiry Type</label>
                     <select 
+                      required
                       className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none"
                       value={formData.inquiryType}
                       onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
                     >
+                      <option value="" disabled>Select an option below</option>
                       <option value="Industrial Machinery">Industrial Machinery</option>
                       <option value="Electrical Products">Electrical Products</option>
                       <option value="Sound Masking Systems">Sound Masking Systems</option>
@@ -190,24 +190,10 @@ export default function Contact() {
                     rows="4" 
                     required
                     className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                    placeholder="How can we help with your infrastructure needs?"
+                    placeholder="Message" 
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />
-                </div>
-
-                <div className="flex items-center gap-2 mb-4">
-                  <input 
-                    required
-                    className="rounded text-primary border-outline-variant focus:ring-primary" 
-                    id="privacy" 
-                    type="checkbox"
-                    checked={formData.privacy}
-                    onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
-                  />
-                  <label className="font-body-sm text-secondary" htmlFor="privacy">
-                    I agree to the <a className="text-primary hover:underline" href="#">Privacy Policy</a>.
-                  </label>
                 </div>
 
                 <button 

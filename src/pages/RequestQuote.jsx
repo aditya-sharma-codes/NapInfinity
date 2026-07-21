@@ -8,7 +8,7 @@ export default function RequestQuote() {
     fullName: '',
     email: '',
     phone: '',
-    inquiryType: 'Industrial Machinery',
+    inquiryType: '',
     message: ''
   });
 
@@ -22,7 +22,7 @@ export default function RequestQuote() {
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({ fullName: '', email: '', phone: '', inquiryType: 'Industrial Machinery', message: '' });
+        setFormData({ fullName: '', email: '', phone: '', inquiryType: '', message: '' });
       }, 5000);
     } catch (err) {
       console.error(err);
@@ -129,7 +129,7 @@ export default function RequestQuote() {
                     <input 
                       required
                       className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                      placeholder="John Doe" 
+                      placeholder="Full Name" 
                       type="text"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
@@ -140,7 +140,7 @@ export default function RequestQuote() {
                     <input 
                       required
                       className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                      placeholder="john@example.com" 
+                      placeholder="Email Address" 
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -150,7 +150,7 @@ export default function RequestQuote() {
                     <label className="font-label-caps text-label-caps block mb-2 text-on-surface-variant">Phone Number</label>
                     <input 
                       className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                      placeholder="+91 00000 00000" 
+                      placeholder="Phone Number" 
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -161,10 +161,12 @@ export default function RequestQuote() {
                 <div>
                   <label className="font-label-caps text-label-caps block mb-2 text-on-surface-variant">Inquiry Type</label>
                   <select 
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none"
                     value={formData.inquiryType}
                     onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
                   >
+                    <option value="" disabled>Select an option below</option>
                     <option value="Industrial Machinery">Industrial Machinery</option>
                     <option value="Electrical Products">Electrical Products</option>
                     <option value="Sound Masking Systems">Sound Masking Systems</option>
@@ -179,7 +181,7 @@ export default function RequestQuote() {
                     rows="4" 
                     required
                     className="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-bright focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md outline-none" 
-                    placeholder="Tell us about your project requirements..."
+                    placeholder="Message" 
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />

@@ -20,7 +20,7 @@ export default function About() {
             Engineering Excellence. Innovation. <span className="text-primary">Trusted Partnerships.</span>
           </h1>
           <p className="text-body-lg text-on-surface-variant leading-relaxed max-w-3xl mx-auto">
-            NAP Infinity is a technology-driven engineering company specializing in industrial exports, sound masking systems, and interior consultation & project execution. We are committed to delivering high-quality products and innovative solutions that enhance productivity, improve environments, and create long-term value for our clients.
+            NAP Infinity is a technology-driven engineering company specializing in sound masking systems, industrial exports, and interior consultation & project execution. We are committed to delivering high-quality products and innovative solutions that enhance productivity, improve environments, and create long-term value for our clients.
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function About() {
             <h2 className="text-headline-lg text-on-surface">The Vision Behind Infinity</h2>
             <div className="space-y-6 text-on-surface-variant">
               <p className="text-body-md leading-relaxed">
-                Founded by Amit Prasad, a Mechanical Engineer with over 18 years of multidisciplinary industry experience, NAP Infinity is built on a strong foundation of technical expertise, operational excellence, and customer-centric values. His professional journey spans the automotive, modular furniture, interior fit-out, and interior consultation & project execution industries, providing a unique perspective on engineering challenges and practical business solutions. To further strengthen his management expertise, he completed an Operations Management program from IIT Delhi.
+                Founded by Amit Prasad, a Mechanical Engineer with over 18 years of multidisciplinary industry experience, NAP Infinity is built on a strong foundation of technical expertise, operational excellence, and customer-centric values. His professional journey spans the automotive, modular furniture, and interior consultation & project execution industries, providing a unique perspective on engineering challenges and practical business solutions. To further strengthen his management expertise, he completed an Operations Management program from IIT Delhi.
               </p>
               <p className="text-body-md leading-relaxed">
                 Driven by a passion for engineering and innovation, Amit established NAP Infinity with a vision to develop world-class engineering solutions while building trusted relationships across global markets. Rooted in the <strong>Make in India <IndiaFlag className="w-4 h-2.5 inline align-middle" /></strong> initiative, the company actively promotes indigenous manufacturing by exporting high-grade industrial machinery and electrical products globally, alongside advanced Sound Masking Systems and comprehensive Interior Consultation & Project Execution.
