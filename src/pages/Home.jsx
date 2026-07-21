@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import IndiaFlag from '../components/IndiaFlag';
 
 const heroImg = "/hero_engineering_facility.png";
 const acousticImg = "/sound_masking_office_interior.png";
@@ -24,14 +25,19 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl space-y-6">
-            <span className="inline-block px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-white bg-primary rounded-full shadow-lg shadow-primary/30 font-label-caps">
-              ESTABLISHED EXCELLENCE
-            </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-block px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-white bg-primary rounded-full shadow-lg shadow-primary/30 font-label-caps">
+                ESTABLISHED EXCELLENCE
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-amber-300 bg-white/10 backdrop-blur-md rounded-full border border-amber-400/30 font-label-caps">
+                <IndiaFlag className="w-4 h-2.5" /> MAKE IN INDIA
+              </span>
+            </div>
             <h1 className="text-5xl md:text-7xl font-display font-extrabold text-white leading-[1.1] tracking-tight">
-              Engineering Solutions That <span className="text-primary underline decoration-primary/40 underline-offset-8">Drive Performance</span> &amp; Build Trust
+              Driven by a Passion for <span className="text-primary underline decoration-primary/40 underline-offset-8">Engineering &amp; Innovation</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl font-body-lg">
-              Introducing NAP Infinity's excellence in high-precision engineering, industrial exports, and interior consultation & project execution. We bridge the gap between complex challenges and sustainable solutions.
+              Introducing NAP Infinity's excellence in Sound Masking Systems, Industrial Exports, and Interior Consultation &amp; Project Execution. We bridge the gap between complex challenges and sustainable solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button 
@@ -91,9 +97,9 @@ export default function Home() {
             </div>
             <div className="lg:w-1/2">
               <h2 className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-4">Precision &amp; Partnership</h2>
-              <h3 className="text-3xl md:text-5xl font-display font-bold mb-8 dark:text-white leading-tight">Driving Industrial Innovation with Legacy &amp; Vision</h3>
+              <h3 className="text-3xl md:text-5xl font-display font-bold mb-8 dark:text-white leading-tight">Driving Industrial Innovation with Experience &amp; Vision</h3>
               <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed">
-                At NAP Infinity, we specialize in delivering world-class engineering solutions. Our legacy is built on nearly two decades of precision manufacturing and strategic global partnerships.
+                At NAP Infinity, we deliver world-class engineering solutions backed by nearly two decades of industry expertise. Through advanced manufacturing capabilities and strategic global partnerships, we provide innovative, reliable, and high-quality solutions tailored to meet the evolving needs of industries worldwide.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-10">
                 <li className="flex items-center gap-3">
@@ -134,18 +140,7 @@ export default function Home() {
             <p className="text-slate-600 dark:text-slate-400">Leveraging deep technical expertise to provide tailored solutions for complex industrial environments.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">public</span>
-              </div>
-              <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Industrial Exports</h4>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Seamless global supply chain management for industrial components and heavy machinery.</p>
-              <ul className="space-y-3 mb-8 text-sm font-medium text-slate-500">
-                <li className="flex items-center gap-2">∙ Logistics Management</li>
-                <li className="flex items-center gap-2">∙ Strategic Sourcing</li>
-                <li className="flex items-center gap-2">∙ Regulatory Compliance</li>
-              </ul>
-            </div>
+            {/* 1. Sound Masking */}
             <div className="group bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
                 <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">graphic_eq</span>
@@ -158,11 +153,27 @@ export default function Home() {
                 <li className="flex items-center gap-2">∙ Custom Installation</li>
               </ul>
             </div>
+
+            {/* 2. Industrial Exports */}
+            <div className="group bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">public</span>
+              </div>
+              <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Industrial Exports</h4>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Global supply chain management and export of industrial machinery and electrical products.</p>
+              <ul className="space-y-3 mb-8 text-sm font-medium text-slate-500">
+                <li className="flex items-center gap-2">∙ Industrial Machinery</li>
+                <li className="flex items-center gap-2">∙ Electrical Products</li>
+                <li className="flex items-center gap-2">∙ Global Logistics &amp; Sourcing</li>
+              </ul>
+            </div>
+
+            {/* 3. Interior Consultation & Project Execution */}
             <div className="group bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
                 <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">architecture</span>
               </div>
-              <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Interior Consultation & Project Execution</h4>
+              <h4 className="text-2xl font-display font-bold mb-4 dark:text-white">Interior Consultation &amp; Project Execution</h4>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Comprehensive design consultation, workspace planning, and seamless project execution for modern commercial spaces.</p>
               <ul className="space-y-3 mb-8 text-sm font-medium text-slate-500">
                 <li className="flex items-center gap-2">∙ Workspace Planning</li>
@@ -182,7 +193,7 @@ export default function Home() {
               <h2 className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-4">The NAP Infinity Edge</h2>
               <h3 className="text-4xl font-display font-bold dark:text-white">Why Global Leaders Trust Us</h3>
             </div>
-            <p className="text-slate-500 dark:text-slate-400 max-w-sm">We combine decades of heritage with cutting-edge engineering processes.</p>
+            <p className="text-slate-500 dark:text-slate-400 max-w-md">We combine nearly two decades of industry expertise with cutting-edge engineering to deliver innovative, reliable solutions.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 flex gap-6">
@@ -220,11 +231,11 @@ export default function Home() {
                 <p className="text-sm text-slate-500 leading-relaxed">End-to-end technical assistance from consultation to maintenance.</p>
               </div>
             </div>
-            <div className="p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 flex gap-6">
-              <span className="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+            <div className="p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 flex gap-6 hover:border-primary/40 transition-colors items-center">
+              <IndiaFlag className="w-8 h-5.5 rounded-sm" />
               <div>
-                <h5 className="font-bold mb-2 text-lg dark:text-white">Global Reach</h5>
-                <p className="text-sm text-slate-500 leading-relaxed">Seamless export capabilities serving major industrial hubs worldwide.</p>
+                <h5 className="font-bold mb-2 text-lg dark:text-white">Make in India &amp; Global Reach</h5>
+                <p className="text-sm text-slate-500 leading-relaxed">Promoting Indian engineering craftsmanship while serving major global industrial markets.</p>
               </div>
             </div>
           </div>

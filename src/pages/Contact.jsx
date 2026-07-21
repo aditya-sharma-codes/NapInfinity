@@ -9,7 +9,7 @@ export default function Contact() {
     fullName: '',
     email: '',
     company: '',
-    inquiryType: 'Industrial Exports',
+    inquiryType: 'Industrial Machinery',
     message: '',
     privacy: false
   });
@@ -28,7 +28,7 @@ export default function Contact() {
           fullName: '',
           email: '',
           company: '',
-          inquiryType: 'Industrial Exports',
+          inquiryType: 'Industrial Machinery',
           message: '',
           privacy: false
         });
@@ -175,10 +175,11 @@ export default function Contact() {
                       value={formData.inquiryType}
                       onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
                     >
-                      <option>Industrial Exports</option>
-                      <option>Sound Masking Solutions</option>
-                      <option>Interior Consultation & Project Execution</option>
-                      <option>General Inquiry</option>
+                      <option value="Industrial Machinery">Industrial Machinery</option>
+                      <option value="Electrical Products">Electrical Products</option>
+                      <option value="Sound Masking Systems">Sound Masking Systems</option>
+                      <option value="Interior Consultation & Project Execution">Interior Consultation &amp; Project Execution</option>
+                      <option value="General Inquiry">General Inquiry</option>
                     </select>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, ChevronRight } from 'lucide-react';
 import { useTheme } from './ThemeContext';
+import IndiaFlag from './IndiaFlag';
 
 const logoUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuDwDQlIdlF2_gjtyKrXH6U3M0j7PCp6lGCeOHUKKSQ7cxIeY2PupBzHHqRWChPEOLkj18UXU7nJc8AljQXqcc3H0kwY9dRjdsOg-mf89ej1gduMNeMrFym9ZBCV040_UvMdv4eFyuMGShQs-vko5bEzdUS7b5FW5SA4dAWEp-CMmjt13J2iAAqu2TQ0c6ULw_3DJcgJtaw0C8hyuO0gz8qy-CCdIk9tH1W_7bFDdAlUvkUVICZDXviVlbHWlkUBd8e6pA";
 
@@ -33,10 +34,7 @@ export default function Navbar() {
           />
           <div className="flex flex-col">
             <span className="font-headline text-lg md:text-xl font-extrabold tracking-tight text-on-surface leading-none">
-              NAP <span className="text-primary">INFINITY</span>
-            </span>
-            <span className="text-[10px] uppercase font-bold tracking-widest text-secondary mt-0.5 hidden sm:inline-block">
-              Precision Engineering
+              <span className="text-primary">NAP</span> INFINITY
             </span>
           </div>
         </NavLink>
@@ -62,6 +60,9 @@ export default function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-on-surface bg-surface-container-high rounded-full border border-outline-variant/60 shadow-sm">
+            <IndiaFlag className="w-4 h-2.5" /> Make in India
+          </span>
           <button
             onClick={() => navigate('/request-quote')}
             className="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 active:scale-95 transition-all duration-150 flex items-center gap-2 shadow-md shadow-primary/20"

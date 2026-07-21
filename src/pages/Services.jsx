@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const industrialImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuCJ-l6QZBRWB-3_JXvlTfcPMvmpGpTllsgnIOu33Vp1VbZyOi0guYpt4URC0qlVRQXK-2CRaHKBNZ5NQHWOoPn-uPeIPW0QI5W2jcnUx0e2Nw7m4P6I14sRqHL1yM9iMMXqF8Zq0gicrs7ba71LUbrHxAkXt84hSuAaAwvrAEQF7lzo2CB77xNHSWA6EzEFIyJMDkOAPCCRtr8YdwP4Qe6Z91Hy0BbGIvO3J_1q5VoRG675UQHJaCd4";
-const soundMaskingEnvImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuCtLyV3L3FRbNWf25S1TXKkQPinr-C1pTqhW54Lm9DD_TXcaUs6nWIbz3mDV2lo7k4tCMA3_ezeBS8BkCCLk8G5BSIFy--So2JlpwWhXdIIR2xxXQy6iQjJWcu0FglLi3pJWULhpqBTuU7b6rzDXPaGFqNWQx5aBk7GCUgGcvbu3LXAYHDMrBhGAHFgdU-WfIeVlHiWEnzlzW-pLHnU9BzZ5Ti-yHQn_hYl8GTysLcJiUqrMlw6m5CM";
+import acousticHeroImg from '../assets/acoustic_hero.png';
+import interiorServiceImg from '../assets/interior_service.png';
+import soundMaskingDiagramImg from '../assets/sound_masking_diagram.jpg';
+import IndiaFlag from '../components/IndiaFlag';
 
 export default function Services() {
   const navigate = useNavigate();
@@ -19,149 +20,203 @@ export default function Services() {
               Precision Engineering for a <span className="text-primary">Global Frontier.</span>
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Leveraging decades of technical expertise to deliver high-performance industrial components, sound masking systems, and interior consultation & project execution worldwide.
+              Delivering innovative engineering solutions through Made in India <IndiaFlag className="w-4 h-2.5 inline align-middle" /> Sound Masking Systems, high-performance industrial machinery and components, and comprehensive interior consultation and project execution. Leveraging nearly two decades of technical expertise, we serve clients with precision, quality, and reliability across global markets.
             </p>
           </div>
         </div>
         <div className="flex-1 relative overflow-hidden bg-surface-dim min-h-[400px]">
           <img 
-            alt="Industrial Facility" 
+            alt="Sound and Acoustics" 
             className="w-full h-full object-cover" 
-            src={industrialImg} 
+            src={acousticHeroImg} 
           />
           <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/30 to-transparent lg:block hidden"></div>
         </div>
       </section>
 
-      {/* Industrial Exports Section */}
-      <section className="bg-surface py-24 px-4 md:px-margin-desktop">
-        <div className="max-w-container-max mx-auto">
-          <div className="max-w-3xl mb-16">
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Industrial Exports</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant">
-              Global procurement and precision manufacturing of high-spec mechanical components for heavy industry, energy, and infrastructure projects.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Card 1 */}
-            <div className="bg-surface-container-lowest p-10 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
-                <span className="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
-              </div>
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-4">Custom Machining</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
-                High-tolerance CNC machining and component fabrication designed to meet rigorous international standards.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 font-label-caps text-[10px] text-on-surface">
-                  <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                  ISO 9001:2015 CERTIFIED
-                </li>
-              </ul>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-surface-container-lowest p-10 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
-                <span className="material-symbols-outlined text-primary text-3xl">box_add</span>
-              </div>
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-4">Global Procurement</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
-                Strategic sourcing of critical industrial materials and specialized hardware across five continents.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 font-label-caps text-[10px] text-on-surface">
-                  <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                  REAL-TIME LOGISTICS TRACKING
-                </li>
-              </ul>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-surface-container-lowest p-10 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
-                <span className="material-symbols-outlined text-primary text-3xl">architecture</span>
-              </div>
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-4">Structural Steel</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
-                Fabrication of heavy-duty structural steel components for large-scale infrastructure and industrial framing.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 font-label-caps text-[10px] text-on-surface">
-                  <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                  ADVANCED COATING SYSTEMS
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* Sound Masking Systems */}
-      <section className="py-24 px-4 md:px-margin-desktop bg-surface-container-low">
+      <section className="py-24 px-4 md:px-margin-desktop bg-surface">
         <div className="max-w-container-max mx-auto flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <span className="font-label-caps text-label-caps text-primary mb-4 block">SOUND MASKING & PRIVACY</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-bold mb-4 border border-primary/20">
+              <IndiaFlag className="w-4 h-2.5" /> MAKE IN INDIA INITIATIVE
+            </div>
+            <span className="font-label-caps text-label-caps text-primary mb-2 block font-bold">SOUND MASKING &amp; PRIVACY</span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">Advanced Sound Masking Systems</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
-              Our Sound Masking systems introduce a sophisticated, unobtrusive background sound designed to match the frequency of human speech, improving privacy and focus.
-            </p>
-            <div className="grid grid-cols-3 gap-4 mb-10">
-              <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant text-center">
-                <span className="material-symbols-outlined text-primary mb-2">corporate_fare</span>
-                <p className="font-label-caps text-[10px]">OFFICE</p>
-              </div>
-              <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant text-center">
-                <span className="material-symbols-outlined text-primary mb-2">medical_services</span>
-                <p className="font-label-caps text-[10px]">HEALTHCARE</p>
-              </div>
-              <div className="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant text-center">
-                <span className="material-symbols-outlined text-primary mb-2">school</span>
-                <p className="font-label-caps text-[10px]">EDUCATION</p>
-              </div>
+            <div className="space-y-6 text-on-surface-variant font-body-md leading-relaxed mb-8">
+              <p>
+                At NAP Infinity, we design and manufacture advanced Made in India <IndiaFlag className="w-4 h-2.5 inline align-middle" /> sound masking systems that enhance speech privacy, improve workplace comfort, and increase productivity. Our intelligent sound masking technology introduces a subtle, unobtrusive background sound precisely tuned to the frequency of human speech, making conversations less intelligible while maintaining a comfortable acoustic environment.
+              </p>
+              <p>
+                Powered by real-time adaptive technology, our system continuously monitors ambient noise levels and automatically adjusts the masking sound to ensure consistent performance throughout the day. This dynamic approach delivers superior privacy, minimizes distractions, and creates focused, productive workspaces across offices, healthcare facilities, financial institutions, government organizations, and other commercial environments.
+              </p>
             </div>
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-[14px] text-white">bolt</span>
-                </div>
-                <div>
-                  <h4 className="font-bold text-on-surface">Productivity Boost</h4>
-                  <p className="text-body-sm text-on-surface-variant">Up to 40% increase in productivity through peak noise reduction.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-[14px] text-white">verified_user</span>
-                </div>
-                <div>
-                  <h4 className="font-bold text-on-surface">Enhanced Privacy</h4>
-                  <p className="text-body-sm text-on-surface-variant">Critical for HR departments, legal firms, and patient exam rooms.</p>
-                </div>
-              </div>
-            </div>
+            
+            <h4 className="font-bold text-on-surface text-lg mb-4">Key Benefits</h4>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Real-time adaptive sound masking technology</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Enhanced speech privacy and confidentiality</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Improved focus and workplace productivity</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Seamless integration with modern office environments</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Energy-efficient and easy to manage</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant font-bold items-center gap-1.5">
+                <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
+                <span><IndiaFlag className="w-3.5 h-2 inline align-middle mr-1" /> Proudly designed and manufactured in India</span>
+              </li>
+            </ul>
           </div>
 
           <div className="lg:w-1/2 relative">
-            <div className="aspect-square rounded-[32px] overflow-hidden border-8 border-surface-container-lowest shadow-2xl">
+            <div className="aspect-[4/3] rounded-[32px] overflow-hidden border-8 border-surface-container-lowest shadow-2xl">
               <img 
-                alt="Sound Masking Environment" 
+                alt="Sound Masking and Privacy Diagram" 
                 className="w-full h-full object-cover" 
-                src={soundMaskingEnvImg} 
+                src={soundMaskingDiagramImg} 
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission / Consultation Section: Bold Red style */}
+      {/* Industrial Exports Section */}
+      <section className="bg-surface-container-low py-24 px-4 md:px-margin-desktop">
+        <div className="max-w-container-max mx-auto flex flex-col lg:flex-row gap-16 items-start">
+          <div className="lg:w-1/2">
+            <span className="font-label-caps text-label-caps text-primary mb-2 block font-bold">GLOBAL SOURCING • TRUSTED PROCUREMENT • RELIABLE DELIVERY</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">Industrial Exports</h2>
+            <div className="space-y-6 text-on-surface-variant font-body-md leading-relaxed mb-8">
+              <p>
+                At NAP Infinity, we specialize in sourcing and exporting high-quality industrial machinery, equipment, and engineering products tailored to our clients' specific requirements. Leveraging our extensive supplier network and industry expertise, our procurement team identifies the most suitable products based on quality, performance, compliance, and cost-effectiveness.
+              </p>
+              <p>
+                From supplier evaluation and quality assurance to logistics and export documentation, we manage the complete procurement process, ensuring seamless delivery and complete customer satisfaction.
+              </p>
+            </div>
+            
+            <h4 className="font-bold text-on-surface text-lg mb-4">Our Capabilities</h4>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Customized sourcing based on client specifications</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Industrial machinery and engineering products</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Supplier identification and evaluation</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Quality inspection and compliance verification</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>Global procurement and export logistics</span>
+              </li>
+              <li className="flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-primary text-sm mt-0.5 font-bold">check_circle</span>
+                <span>End-to-end project coordination and support</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="lg:w-1/2 grid grid-cols-1 gap-6 w-full lg:mt-16">
+            {/* Card 1: Industrial Machinery */}
+            <div className="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+              </div>
+              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-3">Industrial Machinery</h3>
+              <p className="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Export of high-performance industrial machinery, manufacturing equipment, and heavy-duty mechanical systems tailored for global industrial requirements.
+              </p>
+            </div>
+
+            {/* Card 2: Electrical Products */}
+            <div className="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary text-3xl">electrical_services</span>
+              </div>
+              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-3">Electrical Products</h3>
+              <p className="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Comprehensive export of certified electrical components, industrial power distribution equipment, and specialized wiring solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interior Consultation & Project Execution Section */}
+      <section className="py-24 px-4 md:px-margin-desktop bg-surface">
+        <div className="max-w-container-max mx-auto">
+          <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
+            <div className="lg:w-1/2">
+              <span className="font-label-caps text-label-caps text-primary mb-4 block">COMMERCIAL FIT-OUT &amp; DESIGN</span>
+              <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">Interior Consultation & Project Execution</h2>
+              <p className="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                Transforming commercial environments with tailored spatial planning, modular interior solutions, and flawless project management. Drawing on 18+ years of multidisciplinary expertise in interior fit-outs and modular design.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant">
+                  <span className="material-symbols-outlined text-primary text-2xl mt-0.5">design_services</span>
+                  <div>
+                    <h4 className="font-bold text-on-surface">Spatial Planning &amp; Consultation</h4>
+                    <p className="text-body-sm text-on-surface-variant">Ergonomic layout planning, workflow optimization, and architectural consultation tailored for modern commercial spaces.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant">
+                  <span className="material-symbols-outlined text-primary text-2xl mt-0.5">construction</span>
+                  <div>
+                    <h4 className="font-bold text-on-surface">Modular Furniture &amp; Turnkey Execution</h4>
+                    <p className="text-body-sm text-on-surface-variant">Seamless installation of modular systems, partitions, and complete interior fit-outs delivered on schedule.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant">
+                  <span className="material-symbols-outlined text-primary text-2xl mt-0.5">task_alt</span>
+                  <div>
+                    <h4 className="font-bold text-on-surface">End-to-End Project Management</h4>
+                    <p className="text-body-sm text-on-surface-variant">Rigorous quality control, budget supervision, and single-point accountability from initial layout to final handover.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:w-1/2 relative">
+              <div className="aspect-[4/3] rounded-[32px] overflow-hidden border-8 border-surface-container-lowest shadow-2xl">
+                <img 
+                  alt="Interior Consultation & Project Execution" 
+                  className="w-full h-full object-cover" 
+                  src={interiorServiceImg} 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Banner */}
       <section className="bg-primary text-on-primary py-24 px-4 md:px-margin-desktop relative overflow-hidden text-white">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="font-headline-lg text-headline-lg mb-8 leading-tight">Interior Consultation & Project Execution</h2>
+          <h2 className="font-headline-lg text-headline-lg mb-8 leading-tight">Ready to Elevate Your Space or Operations?</h2>
           <p className="text-2xl md:text-3xl font-bold mb-12 italic opacity-95 text-white">
-            "We create engineering solutions that inspire confidence, improve performance, and contribute to sustainable business success across industries."
+            "We create engineering and interior solutions that inspire confidence, improve performance, and contribute to sustainable business success."
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <button 

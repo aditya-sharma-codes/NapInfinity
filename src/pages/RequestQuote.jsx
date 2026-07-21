@@ -8,7 +8,7 @@ export default function RequestQuote() {
     fullName: '',
     email: '',
     phone: '',
-    inquiryType: 'Structural Engineering',
+    inquiryType: 'Industrial Machinery',
     message: ''
   });
 
@@ -22,7 +22,7 @@ export default function RequestQuote() {
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({ fullName: '', email: '', phone: '', inquiryType: 'Structural Engineering', message: '' });
+        setFormData({ fullName: '', email: '', phone: '', inquiryType: 'Industrial Machinery', message: '' });
       }, 5000);
     } catch (err) {
       console.error(err);
@@ -59,7 +59,7 @@ export default function RequestQuote() {
                   <div className="w-12 h-12 bg-primary-container flex items-center justify-center rounded-xl text-primary">
                     <span className="material-symbols-outlined">location_on</span>
                   </div>
-                  <h3 className="font-headline-sm text-headline-sm">Headquarters</h3>
+                  <h3 className="font-headline-sm text-headline-sm">Headquarter</h3>
                 </div>
                 <p className="font-body-md text-secondary">
                   Office No- 702, Building No-9, M-Avenue, Rustomjee Evershine Global City, Near Yazoo Park, Virar(West), Mumbai, Maharashtra-401303
@@ -165,10 +165,11 @@ export default function RequestQuote() {
                     value={formData.inquiryType}
                     onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
                   >
-                    <option value="Structural Engineering">Structural Engineering</option>
-                    <option value="Civil & Urban Planning">Civil &amp; Urban Planning</option>
-                    <option value="Renewable Energy Systems">Renewable Energy Systems</option>
-                    <option value="Strategic Consulting">Strategic Consulting</option>
+                    <option value="Industrial Machinery">Industrial Machinery</option>
+                    <option value="Electrical Products">Electrical Products</option>
+                    <option value="Sound Masking Systems">Sound Masking Systems</option>
+                    <option value="Interior Consultation & Project Execution">Interior Consultation &amp; Project Execution</option>
+                    <option value="General Inquiry">General Inquiry</option>
                   </select>
                 </div>
 

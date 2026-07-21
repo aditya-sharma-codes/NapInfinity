@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IndiaFlag from './IndiaFlag';
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim mb-6">
-            Engineering precision, industrial exports, and interior consultation & project execution for a global market.
+            Excellence in Sound Masking System, industrial exports, and interior consultation & project execution.
           </p>
           <div className="flex gap-4">
             <a className="w-10 h-10 rounded-full border border-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="#">
@@ -45,8 +46,8 @@ export default function Footer() {
             Core Services
           </h4>
           <ul className="space-y-4">
-            <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Industrial Exports</Link></li>
             <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Sound Masking</Link></li>
+            <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Industrial Exports</Link></li>
             <li><Link className="text-on-surface-variant dark:text-surface-dim hover:underline hover:text-primary transition-colors font-body-sm text-body-sm" to="/services">Interior Consultation & Project Execution</Link></li>
           </ul>
         </div>
@@ -73,9 +74,14 @@ export default function Footer() {
       </div>
 
       <div className="mt-16 pt-8 border-t border-surface-variant dark:border-on-secondary-fixed-variant px-4 md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim">
-          © 2024 NAP Infinity. Engineering Precision. Global Excellence.
-        </p>
+        <div className="flex flex-col sm:flex-row items-center gap-3">
+          <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim">
+            © 2024 NAP Infinity. Engineering Precision. Global Excellence.
+          </p>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-high rounded-full text-[11px] font-bold text-on-surface border border-outline-variant/60">
+            <IndiaFlag className="w-3.5 h-2" /> Make in India
+          </span>
+        </div>
         <div className="flex gap-8">
           <a className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim hover:text-primary" href="#">Privacy Policy</a>
           <a className="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-dim hover:text-primary" href="#">Terms of Service</a>

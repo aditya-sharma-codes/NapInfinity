@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import IndiaFlag from '../components/IndiaFlag';
 
 const founderImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuDQWiF-V2-Lx9u9hcITDe0g2JVIFh4dVM4qHEjaRp2SW_3X7dwmrUR5YyiQaom97B0HDH5wa1Pry80EwOh0oVF-VlBfVGYXl1AyXmrgXuu1Kd13QWbjAQDqEuTuUAgOG1ea48RI_fVyjQiy6SZUEPaQaUzpHWDeSXdpMbGcxwFrOWcbZz5CTy_7L128RlJF7ojqY132BrhpJDqGGRgxprLHvcctqiHSlSBSbg7TkmD8kyPj5kLq65t47zqF_AkhWlIPhyX2KMsuXgOCEA";
 
@@ -47,13 +48,22 @@ export default function About() {
                 Founded by Amit Prasad, a Mechanical Engineer with over 18 years of multidisciplinary industry experience, NAP Infinity is built on a strong foundation of technical expertise, operational excellence, and customer-centric values. His professional journey spans the automotive, modular furniture, interior fit-out, and interior consultation & project execution industries, providing a unique perspective on engineering challenges and practical business solutions. To further strengthen his management expertise, he completed an Operations Management program from IIT Delhi.
               </p>
               <p className="text-body-md leading-relaxed">
-                Driven by a passion for engineering and innovation, Amit established NAP Infinity with a vision to develop world-class engineering solutions while building trusted relationships across global markets. Today, the company is engaged in the export of industrial machinery and electrical products, while also providing advanced Sound Masking Systems and comprehensive Interior Consultation & Project Execution that optimize modern commercial spaces.
+                Driven by a passion for engineering and innovation, Amit established NAP Infinity with a vision to develop world-class engineering solutions while building trusted relationships across global markets. Rooted in the <strong>Make in India <IndiaFlag className="w-4 h-2.5 inline align-middle" /></strong> initiative, the company actively promotes indigenous manufacturing by exporting high-grade industrial machinery and electrical products globally, alongside advanced Sound Masking Systems and comprehensive Interior Consultation & Project Execution.
               </p>
             </div>
             <div className="bg-surface-container p-6 rounded-lg border-l-4 border-primary">
-              <p className="text-body-md italic text-on-surface font-medium leading-relaxed">
-                "Building trusted relationships across global markets through precision engineering."
+              <p className="text-body-md italic text-on-surface font-medium leading-relaxed flex items-center gap-1.5 flex-wrap">
+                "Building trusted relationships across global markets through precision engineering and Make in India <IndiaFlag className="w-4 h-2.5" /> excellence."
               </p>
+            </div>
+            <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant flex items-center gap-4 shadow-sm">
+              <IndiaFlag className="w-10 h-7 rounded-sm shadow-md" />
+              <div>
+                <h4 className="font-bold text-on-surface text-base flex items-center gap-2">Make in India Vision</h4>
+                <p className="text-body-sm text-on-surface-variant">
+                  Backed by deep engineering expertise and IIT Delhi management training, NAP Infinity delivers Indian precision manufacturing to clients worldwide.
+                </p>
+              </div>
             </div>
           </div>
         </div>
