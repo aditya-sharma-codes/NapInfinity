@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import IndiaFlag from '../components/IndiaFlag';
 
-import homeHeroBg from '../assets/home_hero_bg.jpg';
+import homeHeroBg from '../assets/home_hero_bg.png';
 
 const acousticImg = "/sound_masking_office_interior.png";
 
@@ -16,7 +16,7 @@ export default function Home() {
       <section className="relative h-[90vh] min-h-[650px] flex items-center overflow-hidden pt-12 bg-slate-950">
         <div className="absolute inset-0 z-0">
           <img 
-            alt="Abstract Purple Geometric Engineering Background" 
+            alt="Modern office with sound masking technology - glass meeting room with acoustic ripple effects" 
             className="w-full h-full object-cover opacity-85 scale-105 transition-transform duration-1000" 
             src={homeHeroBg} 
           />
